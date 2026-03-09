@@ -1,6 +1,6 @@
-# aero-dhbw 💨
+# DHBW Mannheim Typst Template (based on aero-dhbw)
 
-A lightweight template for theses at DHBW Ravensburg.
+A lightweight template for theses at DHBW Mannheim.
 Although, it can be customized to allow for use at other universities.
 There are two thoughts behind the template:
 1. Providing everything you need for simple papers that do not require specific styling setups
