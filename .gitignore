@@ -1,3 +1,5 @@
 template/resources/*
 !template/resources/dhbw-logo.png
 cur-dev
+
+.DS_Store
