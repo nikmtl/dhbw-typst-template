@@ -1,10 +1,10 @@
 [package]
-name = "aero-dhbw"
-version = "0.1.1"
-entrypoint = "src/aero-dhbw.typ"
-authors = ["cocoveal <https://github.com/cocoveal>"]
+name = "dhbw-typst-template"
+version = "0.1.0"
+entrypoint = "src/dhbw-typst-template.typ"
+authors = ["cocoveal <https://github.com/cocoveal>", "nikmtl <https://github.com/nikmtl/dhbw-typst-template>"]
 license = "MIT"
-description = "Template for TX000 papers at DHBW Ravensburg"
+description = "Template for TX000 papers at DHBW Mannheim"
 keywords = ["template", "dhbw", "thesis"]
 categories = ["paper", "thesis", "report"]
 

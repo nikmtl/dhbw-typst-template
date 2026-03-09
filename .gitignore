@@ -2,4 +2,8 @@ template/resources/*
 !template/resources/dhbw-logo.png
 cur-dev
 
+# Ignore system files
 .DS_Store
+
+# Ignore output files while testing
+*.pdf

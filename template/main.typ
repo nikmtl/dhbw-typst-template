@@ -1,5 +1,5 @@
 #import "acronyms.typ": *
-#import "@preview/aero-dhbw:0.1.1": aero-dhbw
+#import "@preview/dhbw-typst-template:0.1.0": template
 
 #let title = ""
 #let author = ""
@@ -9,6 +9,8 @@
 #let mat-number = ""
 #let course-acronym = ""
 #let university = ""
+#let completion-period = " "
+#let submission-date = datetime(year: 2025, month: 1, day: 1)
 #let place-of-authorship = ""
 #let supervisor = ""
 #let company = ""
@@ -21,7 +23,7 @@
 // #let company_logo = image("")
 // #let confidentiality-notice = image("", width: 100%)
 
-#show: aero-dhbw.with(
+#show: template.with(
   title: title,
   project: project,
   project-type: project-type,
@@ -30,8 +32,8 @@
   course-acronym: course-acronym,
   place-of-authorship: place-of-authorship,
   author: author,
-  start-date: datetime(year: 2025, month: 1, day: 1),
-  end-date: datetime(year: 2026, month: 1, day: 1),
+  completion-period: completion-period,
+  submission-date: submission-date,
   supervisor: supervisor,
   company: company,
   company-location: company-location,

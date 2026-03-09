@@ -30,8 +30,8 @@ if type(caption) == content {
   course: [],
   mat-number: [],
   course-acronym: [],
-  start-date: none,
-  end-date: none,
+  completion-period: [],
+  submission-date: none,
   supervisor: [],
   university-supervisor: [],
   company: [],
@@ -120,6 +120,7 @@ if type(caption) == content {
   set document(
     author: author,
     title: title,
+    date: submission-date,
   )
 
   // General page styling
@@ -191,7 +192,7 @@ if type(caption) == content {
 
   // Datetime formatting
   let show_today = datetime.display(datetime.today(), "[day].[month].[year]")
-  let  show_date(date) = datetime.display(date, "[day].[month].[year]")
+  let  show_date(date) = datetime.display(date, "[day] [month repr:long] [year]")
 
   // Cover
   import "titlepage.typ": *
@@ -201,8 +202,8 @@ if type(caption) == content {
     course: course,
     mat-number: mat-number,
     course-acronym: course-acronym,
-    start-date: show_date(start-date),
-    end-date: show_date(end-date),
+    completion-period: completion-period,
+    submission-date: show_date(submission-date),
     company-location: company-location,
     project: project,
     project-type: project-type,

@@ -24,7 +24,7 @@ If I find the time in the future (and someone requests it), I'll add support for
 The fastest way of just using the template is by initializing a new project with the default template configuration.
 You can do so by typing the following command in a terminal (don't forget to navigate to the folder you want to be in first):
 ```typ
-typst init "@preview/aero-dhbw:0.1.1" PROJECT-NAME
+typst init "@preview/dhbw-typst-template:0.1.0" PROJECT-NAME
 ```
 Replace `PROJECT-NAME` with the actual project name or something else if you structure your folders differently.
 
@@ -37,12 +37,11 @@ The intended directory structure is also already present and some usage hints fo
 In case you want to do the template setup yourself, here is the minimal configuration needed for the template:
 
 ```typ
-#import "@preview/aero-dhbw:0.1.1": aero-dhbw
+#import "@preview/dhbw-typst-template:0.1.0": template
 
-#show: aero-dhbw.with(
+#show: template.with(
   author: "",
-  start-date: datetime(year: 2026, month: 1, day: 1),
-  end-date: datetime(year: 2026, month: 12, day: 31),
+  submission-date: datetime(year: 2026, month: 1, day: 1)
 )
 ```
 I would recommend filling in more options, otherwise your cover page won't look very nice.
@@ -60,8 +59,8 @@ I would recommend filling in more options, otherwise your cover page won't look 
 | course | ✗* | — | Defines the name of the study course. |
 | mat-number | ✗* | — | Specifies the DHBW matriculation number (6-digit student ID). |
 | course-acronym | ✗* | — | Defines the abbreviated course name (3–4 letters followed by 2 numbers). |
-| start-date | ✓ | — | Specifies the official start date of the project. |
-| end-date | ✓ | — | Specifies the official end date of the project. |
+| completion-period | ✗* | — | Specifies the official completion period of the project. |
+| submission-date | ✓ | — | Specifies the official submission date of the project. |
 | supervisor | ✗ | — | Specifies the company supervisor for the project. |
 | university-supervisor | ✗ | — | Specifies the university professor supervising the project (mainly relevant for bachelor theses). |
 | company | ✗* | — | Defines the name of the employer or partner company. |
