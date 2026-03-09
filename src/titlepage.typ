@@ -4,8 +4,8 @@
   course: [],
   mat-number: [],
   course-acronym: [],
-  start-date: datetime,
-  end-date: datetime,
+  completion-period: [],
+  submission-date: datetime,
   company-location: [],
   project: [],
   project-type: [],
@@ -60,7 +60,7 @@
     [by \ #author]
 
     v(2em)
-    end-date
+    submission-date
 
     v(2em)
 
@@ -86,7 +86,7 @@
         [
           Completion Period
         ],[
-          #start-date - #end-date 
+          #completion-period
         ],[
            Student ID, Course
         ],[
@@ -136,7 +136,7 @@
     [von \ #author]
 
     v(2em)
-    end-date
+    submission-date
 
     v(2em)
 
@@ -145,7 +145,7 @@
     let parsed = ()
 
     if supervisor != [] {
-      parsed.push([Betreuer der Ausbildungsfirma])
+      parsed.push([Betrieblicher Betreuer])
       parsed.push(supervisor)
     }
 
@@ -162,7 +162,7 @@
         [
           Bearbeitungszeitraum
         ],[
-          #start-date - #end-date 
+          #completion-period
         ],[
           Matrikelnummer, Kurs
         ],[
