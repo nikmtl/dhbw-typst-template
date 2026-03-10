@@ -9,6 +9,6 @@ keywords = ["template", "dhbw", "thesis"]
 categories = ["paper", "thesis", "report"]
 
 [template]
-path = "dhbw-typst-template"
+path = "template"
 entrypoint = "main.typ"
 thumbnail = "thumbnail.jpg"
