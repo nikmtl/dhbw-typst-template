@@ -12,6 +12,7 @@
   supervisor: [],
   university-supervisor: [],
   company: [],
+  functional-integrated: [],
   university: [],
   company-logo: [],
   university-logo: [],
@@ -23,15 +24,39 @@
     source
   }
 
-  set text(size: 14pt)
-  if text-lang == "en" { 
-    v(-1cm)
+  let texts = if text-lang == "en" {
+    (
+      project-course-line: [#project \ of Degree Course *#course* \ at #university],
+      by-line: [by \ ],
+      completion-label: [*Completion Period*],
+      student-course-label: [*Student ID*, *Course*],
+      partner-label: [*Cooperation Partner*],
+      functional-integrated-label: [*Functionally Integrated at*],
+      supervisor-label: [*Company Supervisor*],
+      supervisor-signature-label: [*Signature Supervisor*],
+      university-supervisor-label: [*University Supervisor*],
+    )
+  } else {
+    (
+      project-course-line: [#project \ des Studienganges *#course* \ an der #university],
+      by-line: [von \ ],
+      completion-label: [*Bearbeitungszeitraum*],
+      student-course-label: [*Matrikelnummer*, *Kurs*],
+      partner-label: [*Dualer Partner*],
+      functional-integrated-label: [*Funktional Integriert bei*],
+      supervisor-label: [*Betrieblicher Betreuer*],
+      supervisor-signature-label: [*Unterschrift Betreuer*],
+      university-supervisor-label: [*Gutachter der DHBW*],
+    )
+  }
 
-    align(top,
-      block(
-        width: 100%,
-        inset: (x: -1cm))[
-          #stack(
+  v(-1cm)
+
+  align(top,
+    block(
+      width: 100%,
+      inset: (x: -0.5cm))[
+        #stack(
           dir: ltr,
           if company-logo != [] {
             align(left, cover(company-logo))
@@ -39,140 +64,71 @@
           align(right, cover(university-logo)),
         )
       ]
-    )
+  )
 
-    v(6em)
+  v(4em)
 
-    set align(center)
-    
-    par(leading: 1em, text(20pt)[*#title*])
-    
-    v(4em)
+  set align(center)
 
-    text(size: 16pt)[#project-type (#project)]
+  project-type
 
-    v(2em)
+  v(2em)
 
-    [of Degree Course #course \ at #university]
+  par(leading: 1em, text(24pt)[*#title*])
 
-    v(4em) 
+  v(2em)
 
-    [by \ #author]
+  texts.project-course-line
 
-    v(2em)
-    submission-date
+  v(1.5em)
 
-    v(2em)
+  texts.by-line
+  text(15pt)[*#author*] 
 
-    set rect(width: 100%, inset: 0.5em)
+  v(1.5em)
+  submission-date
 
-    let parsed = ()
+  v(2em)
 
-    if supervisor != [] {
-      parsed.push([Company Supervisor])
-      parsed.push(supervisor)
-    }
+  set rect(width: 100%, inset: 0.5em)
 
-    if university-supervisor != [] {
-      parsed.push([University Supervisor])
-      parsed.push(university-supervisor)
-    }
+  let parsed = ()
 
-    align(left,
-      grid(
-        columns: (1fr, 1fr),
-        align: left,
-        inset: 0.5em,
-        [
-          Completion Period
-        ],[
-          #completion-period
-        ],[
-           Student ID, Course
-        ],[
-          #mat-number, #course-acronym
-        ],[
-          Cooperation Partner
-        ],[
-          #par(justify: true)[#company, #company-location]
-        ], ..parsed
-      )
-    )
+  if functional-integrated != [] {
+    parsed.push(texts.functional-integrated-label)
+    parsed.push(functional-integrated)
   }
-  else {
-    v(-1cm)
 
-    align(top,
-      block(
-        width: 100%,
-        inset: (x: -1cm))[
-          #stack(
-          dir: ltr,
-          if company-logo != [] {
-            align(left, cover(company-logo))
-          },
-          align(right, cover(university-logo)),
-        )
-      ]
-    )
-
-
-    v(6em)
-
-    set align(center)
-    
-    par(leading: 1em, text(20pt)[*#title*])
-    
-    v(4em)
-
-    text(size: 16pt)[#project-type (#project)]
-
-    v(2em)
-
-    [Des Studienganges #course \ an der #university]
-
-    v(4em) 
-
-    [von \ #author]
-
-    v(2em)
-    submission-date
-
-    v(2em)
-
-    set rect(width: 100%, inset: 0.5em)
-
-    let parsed = ()
-
-    if supervisor != [] {
-      parsed.push([Betrieblicher Betreuer])
-      parsed.push(supervisor)
-    }
-
-    if university-supervisor != [] {
-      parsed.push([Gutachter der DHBW])
-      parsed.push(university-supervisor)
-    }
-
-    align(left,
-      grid(
-        columns: (1fr, 1fr),
-        align: left,
-        inset: 0.5em,
-        [
-          Bearbeitungszeitraum
-        ],[
-          #completion-period
-        ],[
-          Matrikelnummer, Kurs
-        ],[
-          #mat-number, #course-acronym
-        ],[
-          Dualer Partner
-        ],[
-          #par(justify: true)[#company, #company-location]
-        ], ..parsed
-      )
-    )
+  if supervisor != [] {
+    parsed.push(texts.supervisor-label)
+    parsed.push(supervisor)
+    parsed.push(texts.supervisor-signature-label)
+    parsed.push(line(length: 100%))
   }
+
+  if university-supervisor != [] {
+    parsed.push(texts.university-supervisor-label)
+    parsed.push(university-supervisor)
+  }
+
+  align(left+bottom,
+    grid(
+      columns: (1fr, 1fr),
+      align: left+top,
+      inset: 0.5em,
+      [
+        #texts.completion-label
+      ],[
+        #completion-period
+      ],[
+        #texts.student-course-label
+      ],[
+        #mat-number, #course-acronym
+      ],[
+        #texts.partner-label
+      ],[
+        #par(justify: true)[#company, #company-location]
+      ], ..parsed
+    )
+  )
 }

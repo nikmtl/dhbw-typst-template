@@ -1,26 +1,26 @@
 #import "acronyms.typ": * 
 #import "@local/dhbw-typst-template:0.1.0": dhbw-typst-template
 
-#let title = ""
-#let author = ""
-#let project = ""
-#let project-type = ""
-#let course = ""
-#let mat-number = ""
-#let course-acronym = ""
-#let university = ""
-#let completion-period = " "
-#let submission-date = datetime(year: 2025, month: 1, day: 1)
-#let place-of-authorship = ""
-#let supervisor = ""
-#let company = ""
-#let company-location = ""
+#let title = "A very informative title, that might even span multiple lines if it is long enough"
+#let author = "Jhon Doe"
+#let project = "for the 03. Semester (T4_2000)"
+#let project-type = "Project Thesis"
+#let course = "Applied Computer Science"
+#let mat-number = "123456"
+#let course-acronym = "ABC123"
+#let university = "Baden-Wuerttemberg Cooperative State University Mannheim"
+#let completion-period = "Mon - Mon YYYY"
+#let submission-date = datetime(year: 2000, month: 1, day: 1)
+#let place-of-authorship = "place-of-authorship"
+#let supervisor = "John Doe"
+#let company = "Your Company GmbH" 
+#let company-location = "New York"
 #let bib = ""
 
 // Uncomment the ones you need and enter the paths to the images/PDFs inside the quotes, e.g. image("path/to/image")
 // Uncomment them down below as well
-#let dhbw_logo = image("resources/dhbw-logo.png")
-// #let company_logo = image("")
+#let dhbw_logo = image("resources/dhbw-logo.jpg")
+#let company_logo = image("resources/company-logo.png", width: 20%)
 // #let confidentiality-notice = image("", width: 100%)
 
 #show: dhbw-typst-template.with(
@@ -43,7 +43,7 @@
   figure-gap-above: 0.5em,
   figure-gap-under: 0.5em,
   text-lang: "en",
-  // company-logo: company_logo,
+  company-logo: company_logo,
   // confidentiality-notice: confidentiality-notice,
   // path-to-abstract: "chapters/abstract.typ",
   // bib: bib,
