@@ -148,7 +148,6 @@
           query(selector(heading.where(level: 1)).before(here())).last().body
         }
         h(1fr)
-        numbering(here().page-numbering(), counter(page).get().at(0))
       },
     )
   }
@@ -213,12 +212,7 @@
     text-lang: text-lang,
   )
 
-  // Reset page number
-  counter(page).update(0)
-
   pagebreak(weak: true)
-
-  set page(header: pretty_header(), numbering: "I", number-align: top + right)
 
   // Styling level 1 headings
   show heading.where(level: 1): it => {
@@ -311,6 +305,10 @@
 
   show outline: set heading(outlined: true)
 
+  // Reset page number
+  counter(page).update(0)
+  set page(numbering: "I")
+
   // List of Figures & List of Tables
   outline(
     title: fig-list-title,
@@ -328,7 +326,6 @@
       theme: theme-pa,
     )
   }
-  counter(page).update(0)
 
   // Content styling
   set par(
@@ -357,7 +354,8 @@
 
   // Heading reference styling for content
   set heading(supplement: (..h) => h.at(0).body) if heading-name-as-supplement
-  set page(numbering: "1")
+  set page(header: pretty_header(), numbering: "1")
+  counter(page).update(1)
 
   // ----- CONTENT -----
 
