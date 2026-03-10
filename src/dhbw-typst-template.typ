@@ -42,7 +42,7 @@
   university: [],
   university-logo: [],
   company-logo: [],
-  confidentiality-notice: [],
+  confidentiality-notice: false,
   place-of-authorship: [],
   path-to-abstract: [],
   acronym-list: (),
