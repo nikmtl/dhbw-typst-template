@@ -131,25 +131,32 @@
 
   // Page header styling
   let pretty_header() = {
-    set text(12pt)
+    context {
+      let level-one-after = query(selector(heading.where(level: 1)).after(here()))
 
-    grid(
-      stroke: (bottom: 1pt),
-      inset: (bottom: 0.75em),
-      context {
-        if query(selector(heading).after(here())).len() == 0 {
-          query(selector(heading.where(level: 1)).before(here())).last().body
-        } else if (
-          query(selector(heading).after(here())).first().level == 1
-            and query(selector(heading).after(here())).first().location().page() == here().page()
-        ) {
-          query(selector(heading.where(level: 1)).after(here())).first().body
+      if level-one-after.len() > 0 and level-one-after.first().location().page() == here().page() {
+        []
+      } else {
+        let previous-chapter = query(selector(heading.where(level: 1)).before(here()))
+
+        if previous-chapter.len() == 0 {
+          []
         } else {
-          query(selector(heading.where(level: 1)).before(here())).last().body
+          let chapter = previous-chapter.last()
+          let chapter-number = counter(heading).at(chapter.location()).first()
+
+          set text(12pt)
+
+
+          grid(
+            columns: (1fr,),
+            stroke: (bottom: 0.5pt),
+            inset: (bottom: 0.75em),
+            [#align(center, emph[#chapter-number #chapter.body])],
+          )
         }
-        h(1fr)
-      },
-    )
+      }
+    }
   }
 
   // Text styling
