@@ -264,6 +264,7 @@
 
   // Abstract
   {
+    set align(horizon)
     set heading(outlined: false)
     set par(justify: true, spacing: par-spacing)
     show heading.where(level: 1): it => align(center, it)
