@@ -20,7 +20,7 @@
 #let dhbw_logo = image("resources/dhbw-logo.jpg")
 #let company_logo = image("resources/company-logo.png", width: 20%)
 
-#let confidentiality-notice = true
+#let confidentiality-notice = false // set to true if you want to include a confidentiality notice
 
 #show: dhbw-typst-template.with(
   title: title,
@@ -41,7 +41,7 @@
   acronym-list: glossary-list,
   figure-gap-above: 0.5em,
   figure-gap-under: 0.5em,
-  text-lang: "de",
+  text-lang: "en",
   company-logo: company_logo,
   confidentiality-notice: confidentiality-notice,
   path-to-abstract: "../template/chapters/abstract.typ",
