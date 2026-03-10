@@ -404,7 +404,7 @@
         table(
           columns: (1fr, 3fr),
           fill: (_, y) => {
-            if y == 0 { luma(75%) } else { none }
+            if y == 0 { luma(96.16%) } else { none }
           },
           align: left,
           table.header(strong(ai-table-cell-name), strong(ai-table-cell-description)),

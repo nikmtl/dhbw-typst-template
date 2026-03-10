@@ -22,6 +22,13 @@
 
 #let confidentiality-notice = false // set to true if you want to include a confidentiality notice
 
+/*
+#let ai-dict = (
+    "NAME-OF-MODEL1": [DESCRIPTION OF USE],
+    "NAME-OF-MODEL2": [DESCRIPTION OF USE]
+)
+*/
+
 #show: dhbw-typst-template.with(
   title: title,
   project: project,
@@ -46,6 +53,7 @@
   confidentiality-notice: confidentiality-notice,
   path-to-abstract: "../template/chapters/abstract.typ",
   // bib: bib,
+  // used-ai: ai-dict
 )
 
 // Keep the content in the chapters folder and only include the files here.
