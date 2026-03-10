@@ -18,6 +18,8 @@
   university-logo: [],
   text-lang: [],
 ) = {
+  set par(leading: 1.5em)
+
   let cover(source) = {
     set image(height: 2cm, fit: "contain")
     source

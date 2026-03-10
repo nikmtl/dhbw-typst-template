@@ -162,11 +162,6 @@
     hyphenate: true,
   )
 
-  // Paragraph styling
-  set par(
-    leading: leading-spaces,
-  )
-
   // Citation styling
   set cite(style: citation-style)
 
@@ -223,14 +218,6 @@
 
   pagebreak(weak: true)
 
-  // Attach confidentiality notice
-  if confidentiality-notice != [] {
-    set page(margin: 0cm) // Avoid duplicate margins
-    confidentiality-notice
-  }
-
-  pagebreak(weak: true)
-
   set page(header: pretty_header(), numbering: "I", number-align: top + right)
 
   // Styling level 1 headings
@@ -248,6 +235,22 @@
     v(2em)
   }
 
+  // Attach confidentiality notice
+  if confidentiality-notice {
+    import "confidentiality-notice.typ": *
+    confidentiality_notice(
+      title: title,
+      company: company,
+      university: university,
+      date: submission-date,
+      place-of-authorship: place-of-authorship,
+      author: author,
+      lang: text-lang,
+      )
+  }
+
+  pagebreak(weak: true)
+
   // Declaration of Authorship
   import "declaration.typ": *
   declaration(
@@ -261,6 +264,11 @@
   )
 
   pagebreak(weak: true)
+
+   // Paragraph styling
+  set par(
+    leading: leading-spaces,
+  )
 
   // Abstract
   {

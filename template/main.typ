@@ -17,11 +17,10 @@
 #let company-location = "New York"
 #let bib = ""
 
-// Uncomment the ones you need and enter the paths to the images/PDFs inside the quotes, e.g. image("path/to/image")
-// Uncomment them down below as well
 #let dhbw_logo = image("resources/dhbw-logo.jpg")
 #let company_logo = image("resources/company-logo.png", width: 20%)
-// #let confidentiality-notice = image("", width: 100%)
+
+#let confidentiality-notice = true
 
 #show: dhbw-typst-template.with(
   title: title,
@@ -44,7 +43,7 @@
   figure-gap-under: 0.5em,
   text-lang: "de",
   company-logo: company_logo,
-  // confidentiality-notice: confidentiality-notice,
+  confidentiality-notice: confidentiality-notice,
   path-to-abstract: "../template/chapters/abstract.typ",
   // bib: bib,
 )

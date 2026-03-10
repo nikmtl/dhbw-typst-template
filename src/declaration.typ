@@ -8,6 +8,7 @@
   lang: [],
 ) = {
   set align(left)
+  set par(leading: 1em)
 
   if lang == "en" {
     set text(lang: "en")
@@ -25,7 +26,7 @@
 
         Furthermore, I declare that the submitted electronic version corresponds to the printed version.#footnote[If both versions are required.]
 
-        #v(6em)
+        #v(5em)
 
         #place-of-authorship, #datetime.display(date, "[month repr:long] [day], [year]")
 
