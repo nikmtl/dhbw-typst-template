@@ -1,3 +1,6 @@
+// use these imports for all your files:
+#import "@preview/glossy:0.9.0"
+
 // The Abstact schould be in in German and Englisch
 // See DHBW guidelines for more information: https://www.dhbw.de/fileadmin/user_upload/Dokumente/Dokumente_fuer_Studierende/251110_Leitlinien_Praxismodule_Studien_Bachelorarbeiten.pdf
 
