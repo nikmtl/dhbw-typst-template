@@ -11,7 +11,7 @@
 #let university = "Baden-Wuerttemberg Cooperative State University Mannheim"
 #let completion-period = "Mon - Mon YYYY"
 #let submission-date = datetime(year: 2000, month: 1, day: 1)
-#let place-of-authorship = "place-of-authorship"
+#let place-of-authorship = "New York"
 #let supervisor = "John Doe"
 #let company = "Your Company GmbH" 
 #let company-location = "New York"
