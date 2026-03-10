@@ -18,8 +18,9 @@
 // them here as well. They will be piped to the backend figure function.
 #import "@preview/aero-dhbw:0.1.1": pa-figure
 
-= introduction
+= Introduction
 
+#lorem(200)
 #pa-figure(
   table([Hi],[Hello]),
   caption: (
@@ -27,3 +28,5 @@
     long: [This is under the table!]
   )
 )
+
+#lorem(400)

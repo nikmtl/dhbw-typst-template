@@ -42,10 +42,10 @@
   acronym-list: glossary-list,
   figure-gap-above: 0.5em,
   figure-gap-under: 0.5em,
-  text-lang: "en",
+  text-lang: "de",
   company-logo: company_logo,
   // confidentiality-notice: confidentiality-notice,
-  // path-to-abstract: "chapters/abstract.typ",
+  path-to-abstract: "../template/chapters/abstract.typ",
   // bib: bib,
 )
 

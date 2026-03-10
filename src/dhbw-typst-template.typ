@@ -51,7 +51,7 @@ if type(caption) == content {
   text-lang: "de",
   outline-style: "default",
   margins: 2.5cm,
-  leading-spaces: 1.5em,
+  leading-spaces: 1.4em,
   text-size: 12pt,
   par-spacing: 2em,
   figure-gap-above: 1em,
@@ -86,11 +86,11 @@ if type(caption) == content {
     table-list-title = "List of Tables"
     gloss-title = "List of Acronyms"
     bib-title = "Bibliography"
-    ai-usage-title = "Declaration of Use of Artificial Intelligence-based Tools"
+    ai-usage-title = "AI Acknowledgement"
     ai-table-cell-name = "Tool"
     ai-table-cell-description = "Description of Use"
     ai-use-description = [Artificial intelligence (AI)-based tools were used in this work. @ai-use-table provides an overview of the tools used and their respective purpose.]
-    ai-table-description = "List of Artificial Intelligence-based Tools used"
+    ai-table-description = "Overview of used AI-based tools"
 
   }
   else {
@@ -99,11 +99,11 @@ if type(caption) == content {
     table-list-title = "Tabellenverzeichnis"
     gloss-title = "Abkürzungsverzeichnis"
     bib-title = "Literaturverzeichnis"
-    ai-usage-title = "Einsatz von Künstliche Intelligenz-basierter Werkzeuge"
+    ai-usage-title = "Anmerkung zur Nutzung von Künstlicher Intelligenz"
     ai-table-cell-name = "Werkzeug"
     ai-table-cell-description = "Beschreibung der Nutzung"
     ai-use-description = [Im Rahmen dieser Arbeit wurden Künstliche Intelligenz (KI)-basierte Werkzeuge benutzt. @ai-use-table gibt eine Übersicht über die verwendeten Werkzeuge und den jeweiligen Einsatzzweck.]
-    ai-table-description = "Liste der verwendeten Künstliche Intelligenz-basierten Werkzeuge"
+    ai-table-description = "Übersicht über die verwendeten KI-basierten Werkzeuge"
   }
 
 
@@ -193,7 +193,7 @@ if type(caption) == content {
 
   // Datetime formatting
   let show_today = datetime.display(datetime.today(), "[day].[month].[year]")
-  let  show_date(date) = datetime.display(date, "[day] [month repr:long] [year]")
+  let show_date(date) = datetime.display(date, "[day] [month repr:long] [year]")
 
   // Cover
   import "titlepage.typ": *
