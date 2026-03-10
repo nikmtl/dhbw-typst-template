@@ -1,5 +1,5 @@
-#import "acronyms.typ": *
-#import "@preview/dhbw-typst-template:0.1.0": template
+#import "acronyms.typ": * 
+#import "@local/dhbw-typst-template:0.1.0": dhbw-typst-template
 
 #let title = ""
 #let author = ""
@@ -23,7 +23,7 @@
 // #let company_logo = image("")
 // #let confidentiality-notice = image("", width: 100%)
 
-#show: template.with(
+#show: dhbw-typst-template.with(
   title: title,
   project: project,
   project-type: project-type,

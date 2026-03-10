@@ -20,11 +20,17 @@ If I find the time in the future (and someone requests it), I'll add support for
 - [Tips](#tips)
 
 ## Getting Started
+As this template is not jet published on the official Typst package registry, you have to install the template locally: 
 
-The fastest way of just using the template is by initializing a new project with the default template configuration.
-You can do so by typing the following command in a terminal (don't forget to navigate to the folder you want to be in first):
+Clone the project in `{data-dir}/typst/packages/local/dhbw-typst-template/0.1.0` to make them available locally on your system. Here, `{data-dir}` is
+
+ - `$XDG_DATA_HOME` or `~/.local/share` on Linux
+ - `~/Library/Application Support` on macOS
+ - `%APPDATA%` on Windows
+
+After that you can initialize a new project by typing the following command in a terminal (don't forget to navigate to the folder you want to be in first and make sure you have Typst installed and available in your PATH):
 ```typ
-typst init "@preview/dhbw-typst-template:0.1.0" PROJECT-NAME
+typst init "@local/dhbw-typst-template:0.1.0" PROJECT-NAME
 ```
 Replace `PROJECT-NAME` with the actual project name or something else if you structure your folders differently.
 
@@ -37,7 +43,7 @@ The intended directory structure is also already present and some usage hints fo
 In case you want to do the template setup yourself, here is the minimal configuration needed for the template:
 
 ```typ
-#import "@preview/dhbw-typst-template:0.1.0": template
+#import "@local/dhbw-typst-template:0.1.0": template
 
 #show: template.with(
   author: "",

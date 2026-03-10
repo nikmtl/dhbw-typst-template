@@ -22,7 +22,7 @@ if type(caption) == content {
   }
 }
 
-#let aero-dhbw(
+#let dhbw-typst-template(
   title: [],
   project: [],
   project-type: [],
@@ -253,7 +253,7 @@ if type(caption) == content {
     author: author,
     project: project,
     project-type: project-type,
-    date: end-date,
+    date: submission-date,
     place-of-authorship: place-of-authorship,
     lang: text-lang
   )
