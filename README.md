@@ -44,9 +44,9 @@ The intended directory structure is also already present and some usage hints fo
 In case you want to do the template setup yourself, here is the minimal configuration needed for the template:
 
 ```typ
-#import "@local/dhbw-typst-template:0.1.0": template
+#import "@local/dhbw-typst-template:0.1.0": dhbw-typst-template
 
-#show: template.with(
+#show: dhbw-typst-template.with(
   author: "",
   submission-date: datetime(year: 2026, month: 1, day: 1)
 )
@@ -71,12 +71,13 @@ I would recommend filling in more options, otherwise your cover page won't look 
 | supervisor | ✗ | — | Specifies the company supervisor for the project. |
 | university-supervisor | ✗ | — | Specifies the university professor supervising the project (mainly relevant for bachelor theses). |
 | company | ✗* | — | Defines the name of the employer or partner company. |
+| functional-integrated | ✗ | — | Defines the department or unit where the work was functionally integrated. |
 | company-location | ✗* | — | Specifies the city where the company is located. |
 | university | ✗* | — | Defines the name of the university. |
 | **Logos & Other Documents** |  |  |  |
 | university-logo | ✗ | — | Path to the image file of the university logo. |
 | company-logo | ✗ | — | Path to the image file of the company logo. |
-| confidentiality-notice | ✗ | — | Path to an image or PDF containing the confidentiality notice (mainly for company theses). |
+| confidentiality-notice | ✗ | false | Enables the built-in confidentiality notice page (mainly for company theses). |
 | place-of-authorship | ✗* | — | Specifies the city where the project was completed (used in the declaration of authorship). |
 | **Content Files** |  |  |  |
 | path-to-abstract | ✗ | — | Path to the Typst file containing the abstract. |
@@ -91,11 +92,11 @@ I would recommend filling in more options, otherwise your cover page won't look 
 | **Language & Typography** |  |  |  |
 | font | ✗ | Libertinus Serif | Specifies the font used for the document. |
 | title-font | ✗ | same as `font` | Specifies the font used for headings/titles only. |
-| text-lang | ✗ | — | Sets the document language (`en` or `de`). |
+| text-lang | ✗ | de | Sets the document language (`en` or `de`). |
 | **Layout & Formatting** |  |  |  |
 | outline-style | ✗ | default | Defines the style used for generated outlines. |
 | margins | ✗ | 2.5 cm | Sets the document margins (DHBW Ravensburg guideline). |
-| leading-spaces | ✗ | 1.5 em | Defines line spacing (DHBW Ravensburg guideline). |
+| leading-spaces | ✗ | 1.3 em | Defines line spacing (DHBW Ravensburg guideline). |
 | text-size | ✗ | 12 pt | Sets the base text size (DHBW Ravensburg guideline). |
 | par-spacing | ✗ | 2 em | Defines spacing between paragraphs. |
 | figure-gap-above | ✗ | 1 em | Sets spacing between a figure and the preceding paragraph. |
@@ -139,13 +140,13 @@ This information is rendered as a table in the annex and is required by DHBW gui
 #### Example
 
 ```typ
-#import "@preview/aero-dhbw:0.1.1": aero-dhbw
+#import "@local/dhbw-typst-template:0.1.0": dhbw-typst-template
 
 #let ai-dict = (
     "NAME-OF-MODEL": [DESCRIPTION OF USE]
 )
 
-#show: aero-dhbw.with(
+#show: dhbw-typst-template.with(
     // other arguments...
     used-ai: ai-dict
 )
