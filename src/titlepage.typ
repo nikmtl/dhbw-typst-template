@@ -16,9 +16,8 @@
   university: [],
   company-logo: [],
   university-logo: [],
-  text-lang: []
+  text-lang: [],
 ) = {
-
   let cover(source) = {
     set image(height: 2cm, fit: "contain")
     source
@@ -52,19 +51,18 @@
 
   v(-1cm)
 
-  align(top,
-    block(
-      width: 100%,
-      inset: (x: -0.5cm))[
-        #stack(
-          dir: ltr,
-          if company-logo != [] {
-            align(left, cover(company-logo))
-          },
-          align(right, cover(university-logo)),
-        )
-      ]
-  )
+  align(top, block(
+    width: 100%,
+    inset: (x: -0.5cm),
+  )[
+    #stack(
+      dir: ltr,
+      if company-logo != [] {
+        align(left, cover(company-logo))
+      },
+      align(right, cover(university-logo)),
+    )
+  ])
 
   v(4em)
 
@@ -83,7 +81,7 @@
   v(1.5em)
 
   texts.by-line
-  text(15pt)[*#author*] 
+  text(15pt)[*#author*]
 
   v(1.5em)
   submission-date
@@ -111,24 +109,28 @@
     parsed.push(university-supervisor)
   }
 
-  align(left+bottom,
-    grid(
-      columns: (1fr, 1fr),
-      align: left+top,
-      inset: 0.5em,
-      [
-        #texts.completion-label
-      ],[
-        #completion-period
-      ],[
-        #texts.student-course-label
-      ],[
-        #mat-number, #course-acronym
-      ],[
-        #texts.partner-label
-      ],[
-        #par(justify: true)[#company, #company-location]
-      ], ..parsed
-    )
-  )
+  align(left + bottom, grid(
+    columns: (1fr, 1fr),
+    align: left + top,
+    inset: 0.5em,
+    [
+      #texts.completion-label
+    ],
+    [
+      #completion-period
+    ],
+    [
+      #texts.student-course-label
+    ],
+    [
+      #mat-number, #course-acronym
+    ],
+    [
+      #texts.partner-label
+    ],
+    [
+      #par(justify: true)[#company, #company-location]
+    ],
+    ..parsed,
+  ))
 }

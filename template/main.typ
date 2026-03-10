@@ -1,4 +1,4 @@
-#import "acronyms.typ": * 
+#import "acronyms.typ": *
 #import "@local/dhbw-typst-template:0.1.0": dhbw-typst-template
 
 #let title = "A very informative title, that might even span multiple lines if it is long enough"
@@ -13,7 +13,7 @@
 #let submission-date = datetime(year: 2000, month: 1, day: 1)
 #let place-of-authorship = "New York"
 #let supervisor = "John Doe"
-#let company = "Your Company GmbH" 
+#let company = "Your Company GmbH"
 #let company-location = "New York"
 #let bib = ""
 

@@ -1,21 +1,23 @@
 //Helper functions
 #let _in-outline = state("in-outline", false)
-#let flex-caption(short: none, long: none) = context if _in-outline.get() and short == none or short == [] { long } else if _in-outline.get() { short } else { long }
+#let flex-caption(short: none, long: none) = context if _in-outline.get() and short == none or short == [] {
+  long
+} else if _in-outline.get() { short } else { long }
 
 
 // Feature-extended figures
 #let pa-figure(source, caption: none, ..args) = {
-if type(caption) == content {
+  if type(caption) == content {
     figure(
       source,
       caption: caption,
-      ..args
+      ..args,
     )
   } else if type(caption) == dictionary {
     figure(
       source,
       caption: flex-caption(long: caption.long, short: caption.short),
-      ..args
+      ..args,
     )
   } else {
     panic("Something is wrong with your caption type.")
@@ -60,13 +62,12 @@ if type(caption) == content {
   heading-name-as-supplement: false,
   path-to-annex: none,
   used-ai: none,
-  body
+  body,
 ) = {
-
   // packages
   import "@preview/glossy:0.9.0": * // package for acronyms
   import "themes/acronym-theme.typ": theme-pa // theme for glossy
-  
+
   // Localization
   let outline-title = ""
   let fig-list-title = ""
@@ -78,7 +79,7 @@ if type(caption) == content {
   let ai-table-cell-description = ""
   let ai-use-description = []
   let ai-table-description = ""
-  
+
 
   if text-lang == "en" {
     outline-title = "Table of Contents"
@@ -91,9 +92,7 @@ if type(caption) == content {
     ai-table-cell-description = "Description of Use"
     ai-use-description = [Artificial intelligence (AI)-based tools were used in this work. @ai-use-table provides an overview of the tools used and their respective purpose.]
     ai-table-description = "Overview of used AI-based tools"
-
-  }
-  else {
+  } else {
     outline-title = "Inhaltsverzeichnis"
     fig-list-title = "Abbildungsverzeichnis"
     table-list-title = "Tabellenverzeichnis"
@@ -140,16 +139,17 @@ if type(caption) == content {
       context {
         if query(selector(heading).after(here())).len() == 0 {
           query(selector(heading.where(level: 1)).before(here())).last().body
-        }
-        else if query(selector(heading).after(here())).first().level == 1 and query(selector(heading).after(here())).first().location().page() == here().page() {
+        } else if (
+          query(selector(heading).after(here())).first().level == 1
+            and query(selector(heading).after(here())).first().location().page() == here().page()
+        ) {
           query(selector(heading.where(level: 1)).after(here())).first().body
-        } 
-        else {
+        } else {
           query(selector(heading.where(level: 1)).before(here())).last().body
         }
         h(1fr)
         numbering(here().page-numbering(), counter(page).get().at(0))
-      }
+      },
     )
   }
 
@@ -159,7 +159,7 @@ if type(caption) == content {
     region: "de",
     lang: text-lang,
     font: font,
-    hyphenate: true
+    hyphenate: true,
   )
 
   // Paragraph styling
@@ -175,14 +175,14 @@ if type(caption) == content {
 
   // Heading styling
   show heading.where(level: 2): element => {
-    set text(size: text-size + (1/2 * text-size))
+    set text(size: text-size + (1 / 2 * text-size))
     v(2em)
     element
     v(2em)
   }
 
   show heading.where(level: 3): element => {
-    set text(size: text-size + (1/3 * text-size))
+    set text(size: text-size + (1 / 3 * text-size))
     v(1em)
     element
     v(1em)
@@ -215,7 +215,7 @@ if type(caption) == content {
     university: university,
     company-logo: company-logo,
     university-logo: university-logo,
-    text-lang: text-lang
+    text-lang: text-lang,
   )
 
   // Reset page number
@@ -236,13 +236,13 @@ if type(caption) == content {
   // Styling level 1 headings
   show heading.where(level: 1): it => {
     pagebreak(weak: true)
-    
+
     //Reset counters for figures
     counter(figure.where(kind: image)).update(0)
     counter(figure.where(kind: table)).update(0)
     counter(figure.where(kind: raw)).update(0)
-    
-    set text(size: text-size + (5/6 * text-size))
+
+    set text(size: text-size + (5 / 6 * text-size))
     v(4em)
     it
     v(2em)
@@ -257,15 +257,16 @@ if type(caption) == content {
     project-type: project-type,
     date: submission-date,
     place-of-authorship: place-of-authorship,
-    lang: text-lang
+    lang: text-lang,
   )
-  
+
   pagebreak(weak: true)
 
   // Abstract
   {
     set heading(outlined: false)
     set par(justify: true, spacing: par-spacing)
+    show heading.where(level: 1): it => align(center, it)
     if path-to-abstract != [] {
       include path-to-abstract
     }
@@ -281,21 +282,20 @@ if type(caption) == content {
   {
     if outline-style == "typst" {
       outline(title: outline-title)
-    }
-    // Make Chapters bold
+    } // Make Chapters bold
     else if outline-style == "default" {
       show outline.entry.where(level: 1): it => link(
         it.element.location(),
-        strong(it.indented(it.prefix(), it.body() + h(1fr) + it.page()))
+        strong(it.indented(it.prefix(), it.body() + h(1fr) + it.page())),
       )
-      
+
       outline(title: outline-title)
     } else {
       show outline.entry.where(level: 1): it => link(
         it.element.location(),
-        strong(it.indented(it.prefix(), it.body() + h(1fr) + it.page()))
+        strong(it.indented(it.prefix(), it.body() + h(1fr) + it.page())),
       )
-      
+
       outline(title: outline-title)
     }
   }
@@ -304,19 +304,19 @@ if type(caption) == content {
 
   // List of Figures & List of Tables
   outline(
-      title: fig-list-title,
-      target: figure.where(kind: image)
+    title: fig-list-title,
+    target: figure.where(kind: image),
   )
   outline(
     title: table-list-title,
-    target: figure.where(kind: table)
+    target: figure.where(kind: table),
   )
 
   // List of Acronyms
   if acronym-list.len() != 0 {
     glossary(
       title: gloss-title,
-      theme: theme-pa
+      theme: theme-pa,
     )
   }
   counter(page).update(0)
@@ -324,17 +324,17 @@ if type(caption) == content {
   // Content styling
   set par(
     justify: true,
-    spacing: par-spacing
+    spacing: par-spacing,
   )
 
   // List and enum styling
   set list(indent: 1em)
   set enum(indent: 1em)
-  
+
   // Figure styling for content
   set figure(
     gap: 1em,
-    numbering: (..num) => numbering( "1.1", counter(heading).get().first(), num.pos().first())
+    numbering: (..num) => numbering("1.1", counter(heading).get().first(), num.pos().first()),
   )
 
   show figure: it => {
@@ -366,7 +366,7 @@ if type(caption) == content {
   counter(heading).update(0)
   set heading(numbering: "A.1")
   set figure(
-    numbering: (..num) => numbering( "A.1", counter(heading).get().first(), num.pos().first())
+    numbering: (..num) => numbering("A.1", counter(heading).get().first(), num.pos().first()),
   )
 
   // AI usage declarations
@@ -376,7 +376,7 @@ if type(caption) == content {
       parsed.push(name)
       parsed.push(description)
     }
-    
+
     heading(ai-usage-title)
 
     [
@@ -386,14 +386,13 @@ if type(caption) == content {
         table(
           columns: (1fr, 3fr),
           fill: (_, y) => {
-            if y == 0 {luma(75%)}
-            else {none}
+            if y == 0 { luma(75%) } else { none }
           },
           align: left,
           table.header(strong(ai-table-cell-name), strong(ai-table-cell-description)),
-          ..parsed
+          ..parsed,
         ),
-        caption: ai-table-description
+        caption: ai-table-description,
       )<ai-use-table>
     ]
   }
