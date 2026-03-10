@@ -102,8 +102,8 @@
   if supervisor != [] {
     parsed.push(texts.supervisor-label)
     parsed.push(supervisor)
-    parsed.push(texts.supervisor-signature-label)
-    parsed.push(line(length: 100%))
+    parsed.push([#align(left + bottom, texts.supervisor-signature-label)])
+    parsed.push(box(width: 100%, height: 1.5em)[#align(left + bottom, line(length: 100%, stroke: 0.4pt))])
   }
 
   if university-supervisor != [] {
