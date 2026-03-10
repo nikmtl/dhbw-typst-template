@@ -90,6 +90,7 @@ I would recommend filling in more options, otherwise your cover page won't look 
 | citation-style | ✗ | IEEE | Defines the citation style. |
 | **Language & Typography** |  |  |  |
 | font | ✗ | Libertinus Serif | Specifies the font used for the document. |
+| title-font | ✗ | same as `font` | Specifies the font used for headings/titles only. |
 | text-lang | ✗ | — | Sets the document language (`en` or `de`). |
 | **Layout & Formatting** |  |  |  |
 | outline-style | ✗ | default | Defines the style used for generated outlines. |

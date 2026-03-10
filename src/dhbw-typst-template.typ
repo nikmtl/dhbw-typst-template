@@ -50,6 +50,7 @@
   bib-style: "ieee",
   citation-style: "ieee", // use alphanumeric for engineering
   font: "Libertinus Serif",
+  title-font: "Libertinus Serif",
   text-lang: "de",
   outline-style: "default",
   margins: 2.5cm,
@@ -176,6 +177,8 @@
   show figure.where(kind: table): set figure.caption(position: table-caption-position)
 
   // Heading styling
+  show heading: set text(font: title-font)
+
   show heading.where(level: 2): element => {
     set text(size: text-size + (1 / 2 * text-size))
     v(2em)
