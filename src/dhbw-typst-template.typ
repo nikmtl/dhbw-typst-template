@@ -230,9 +230,9 @@
     counter(figure.where(kind: raw)).update(0)
 
     set text(size: text-size + (5 / 6 * text-size))
-    v(4em)
-    it
     v(2em)
+    it
+    v(1.5em)
   }
 
   // Attach confidentiality notice
