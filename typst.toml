@@ -11,4 +11,4 @@ categories = ["paper", "thesis", "report"]
 [template]
 path = "dhbw-typst-template"
 entrypoint = "main.typ"
-thumbnail = "thumbnail.png"
+thumbnail = "thumbnail.jpg"
