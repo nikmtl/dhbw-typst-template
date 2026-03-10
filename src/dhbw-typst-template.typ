@@ -53,7 +53,7 @@
   text-lang: "de",
   outline-style: "default",
   margins: 2.5cm,
-  leading-spaces: 1.4em,
+  leading-spaces: 1.3em,
   text-size: 12pt,
   par-spacing: 2em,
   figure-gap-above: 1em,
@@ -127,6 +127,7 @@
   set page(
     paper: "a4",
     margin: margins,
+    header-ascent: 1em,
   )
 
   // Page header styling
