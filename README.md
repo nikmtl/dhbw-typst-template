@@ -35,6 +35,10 @@ typst init "@local/dhbw-typst-template:0.1.0" PROJECT-NAME
 ```
 Replace `PROJECT-NAME` with the actual project name or something else if you structure your folders differently.
 
+To run this project in vs code, install the Tinymist Typst extension and open the `main.typ` file. You should be able to see a preview of the document on the right side.
+
+To run the project in the terminal, install Typst and type `typst compile main.typ` and it will generate a `main.pdf` file in the same directory. To automatically recompile the document whenever you make changes, you can use `typst watch main.typ`.
+
 This default setup comes with an already setup acronym list, where you just have to put in your values and don't have to worry about syntax.
 The most important arguments are already "written out" so-to-say, as well. 
 The intended directory structure is also already present and some usage hints for some lesser components are also included.
