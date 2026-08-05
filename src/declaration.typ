@@ -26,6 +26,10 @@
 
         Furthermore, I declare that the submitted electronic version corresponds to the printed version.#footnote[If both versions are required.]
 
+        #v(1em)
+
+        I have used AI tools in the creation of this work. I have indicated this at the appropriate places in the work.
+
         #v(5em)
 
         #place-of-authorship, #datetime.display(date, "[month repr:long] [day], [year]")
@@ -51,6 +55,10 @@
         #v(1em)
 
         Des Weiteren versichere ich, dass die eingereichte elektronische Fassung mit der gedruckten Ausfertigung übereinstimmt.#footnote[Falls beide Fassungen gefordert sind.]
+
+        #v(1em)
+
+        Ich habe bei der Erstellung der Arbeit KI-Werkzeuge eingesetzt. Dies habe ich an den entsprechenden Stellen der Arbeit kenntlich gemacht.
 
 
         #v(6em)
