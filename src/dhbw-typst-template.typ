@@ -181,16 +181,16 @@
 
   show heading.where(level: 2): element => {
     set text(size: text-size + (1 / 2 * text-size))
-    v(2em)
+    v(2em, weak: true)
     element
-    v(2em)
+    v(1.5em, weak: true)
   }
 
   show heading.where(level: 3): element => {
     set text(size: text-size + (1 / 3 * text-size))
-    v(1em)
+    v(1.5em, weak: true)
     element
-    v(1em)
+    v(1em, weak: true)
   }
 
   // Math styling
@@ -235,9 +235,9 @@
     counter(figure.where(kind: raw)).update(0)
 
     set text(size: text-size + (5 / 6 * text-size))
-    v(2em)
+    v(2.5em, weak: true)
     it
-    v(1.5em)
+    v(1.5em, weak: true)
   }
 
   // Attach confidentiality notice
