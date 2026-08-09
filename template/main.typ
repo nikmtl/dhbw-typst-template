@@ -52,6 +52,7 @@
   company-logo: company_logo,
   confidentiality-notice: confidentiality-notice,
   path-to-abstract: "../template/chapters/abstract.typ",
+  // path-to-annex: "../template/chapters/annex.typ",
   // bib: bib,
   // used-ai: ai-dict
 )
