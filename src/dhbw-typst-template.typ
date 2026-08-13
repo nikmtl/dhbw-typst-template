@@ -54,7 +54,7 @@
   text-lang: "de",
   outline-style: "default",
   margins: 2.5cm,
-  leading-spaces: 1.2em, // max leading space is 1.3em
+  leading-spaces: 1.2em, // 0,9 - 1.3em
   text-size: 12pt,
   par-spacing: 2em,
   figure-gap-above: 1em,
