@@ -354,6 +354,10 @@
     numbering: (..num) => numbering("1.1", counter(heading).get().first(), num.pos().first()),
   )
 
+  // Allow tables and code listings to break across pages instead of being
+  // pushed onto the next page as a whole (which can otherwise overflow it).
+  show figure: set block(breakable: true)
+
   show figure: it => {
     v(figure-gap-above)
     it
