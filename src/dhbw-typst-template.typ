@@ -1,5 +1,8 @@
 //Helper functions
 #let _in-outline = state("in-outline", false)
+// Lets the List of Figures / List of Tables / List of Acronyms share a page
+// instead of each forcing its own, since they're often short enough together.
+#let _suppress-heading-break = state("suppress-heading-break", false)
 #let flex-caption(short: none, long: none) = context if _in-outline.get() and short == none or short == [] {
   long
 } else if _in-outline.get() { short } else { long }
@@ -226,8 +229,10 @@
   pagebreak(weak: true)
 
   // Styling level 1 headings
-  show heading.where(level: 1): it => {
-    pagebreak(weak: true)
+  show heading.where(level: 1): it => context {
+    if not _suppress-heading-break.get() {
+      pagebreak(weak: true)
+    }
 
     //Reset counters for figures
     counter(figure.where(kind: image)).update(0)
@@ -320,7 +325,13 @@
   counter(page).update(0)
   set page(numbering: "I")
 
-  // List of Figures & List of Tables
+  // List of Figures, List of Tables & List of Acronyms
+  // Kept together (no forced break between them) so they can share one page
+  // when their combined content is short enough. Still starts on its own
+  // page, separate from the Table of Contents.
+  pagebreak(weak: true)
+  _suppress-heading-break.update(true)
+
   outline(
     title: fig-list-title,
     target: figure.where(kind: image),
@@ -330,13 +341,14 @@
     target: figure.where(kind: table),
   )
 
-  // List of Acronyms
   if acronym-list.len() != 0 {
     glossary(
       title: gloss-title,
       theme: theme-pa,
     )
   }
+
+  _suppress-heading-break.update(false)
 
   // Content styling
   set par(
