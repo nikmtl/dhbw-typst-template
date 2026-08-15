@@ -24,11 +24,11 @@
 
         #v(1em)
 
-        Furthermore, I declare that the submitted electronic version corresponds to the printed version.#footnote[If both versions are required.]
+        I have used AI tools as aids in the preparation of this paper. The tools used and their respective purposes are fully listed in the AI Acknowledgement at the end of the paper.
 
         #v(1em)
 
-        I have used AI tools in the creation of this work. I have indicated this at the appropriate places in the work.
+        Furthermore, I declare that the submitted electronic version corresponds to the printed version.#footnote[If both versions are required.]
 
         #v(5em)
 
@@ -54,11 +54,12 @@
 
         #v(1em)
 
-        Des Weiteren versichere ich, dass die eingereichte elektronische Fassung mit der gedruckten Ausfertigung übereinstimmt.#footnote[Falls beide Fassungen gefordert sind.]
+        Ich habe bei der Erstellung der Arbeit KI-Werkzeuge als Hilfsmittel eingesetzt. Die verwendeten Werkzeuge und ihre jeweiligen Einsatzzwecke sind im AI-Acknowledgement am Ende der Arbeit vollständig aufgeführt.
+        
 
         #v(1em)
 
-        Ich habe bei der Erstellung der Arbeit KI-Werkzeuge eingesetzt. Dies habe ich an den entsprechenden Stellen der Arbeit kenntlich gemacht.
+        Des Weiteren versichere ich, dass die eingereichte elektronische Fassung mit der gedruckten Ausfertigung übereinstimmt.#footnote[Falls beide Fassungen gefordert sind.]
 
 
         #v(6em)
