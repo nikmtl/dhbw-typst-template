@@ -22,6 +22,9 @@
 
 #let confidentiality-notice = false // set to true if you want to include a confidentiality notice
 
+#let abstract = include "chapters/abstract.typ"
+// #let annex = include "chapters/annex.typ"
+
 /*
 #let ai-dict = (
     "NAME-OF-MODEL1": [DESCRIPTION OF USE],
@@ -51,8 +54,8 @@
   text-lang: "en",
   company-logo: company_logo,
   confidentiality-notice: confidentiality-notice,
-  path-to-abstract: "../template/chapters/abstract.typ",
-  // path-to-annex: "../template/chapters/annex.typ",
+  abstract: abstract,
+  // annex: annex,
   // bib: bib,
   // used-ai: ai-dict
 )

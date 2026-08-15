@@ -44,7 +44,7 @@
   company-logo: [],
   confidentiality-notice: false,
   place-of-authorship: [],
-  path-to-abstract: [],
+  abstract: [],
   acronym-list: (),
   bib: [],
   bib-style: "ieee",
@@ -61,7 +61,7 @@
   figure-gap-under: 1em,
   table-caption-position: bottom,
   heading-name-as-supplement: false,
-  path-to-annex: none,
+  annex: none,
   used-ai: none,
   body,
 ) = {
@@ -281,8 +281,8 @@
     set heading(outlined: false)
     set par(justify: true, spacing: par-spacing)
     show heading.where(level: 1): it => align(center, it)
-    if path-to-abstract != [] {
-      include path-to-abstract
+    if abstract != [] {
+      abstract
     }
   }
   pagebreak(weak: true)
@@ -416,7 +416,7 @@
   }
 
   // Annex
-  if path-to-annex != none {
-    include path-to-annex
+  if annex != none {
+    annex
   }
 }
