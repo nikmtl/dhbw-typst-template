@@ -325,10 +325,8 @@
   counter(page).update(0)
   set page(numbering: "I")
 
-  // List of Figures, List of Tables & List of Acronyms
-  // Kept together (no forced break between them) so they can share one page
-  // when their combined content is short enough. Still starts on its own
-  // page, separate from the Table of Contents.
+  // List of Figures, List of Tables
+  // Kept together (no forced break between them) so they can share one page when their combined content is short enough.
   pagebreak(weak: true)
   _suppress-heading-break.update(true)
 
@@ -340,7 +338,10 @@
     title: table-list-title,
     target: figure.where(kind: table),
   )
+  
+  _suppress-heading-break.update(false)
 
+  // List of Acronyms
   if acronym-list.len() != 0 {
     glossary(
       title: gloss-title,
@@ -348,7 +349,7 @@
     )
   }
 
-  _suppress-heading-break.update(false)
+
 
   // Content styling
   set par(
