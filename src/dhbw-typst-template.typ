@@ -392,8 +392,10 @@
   // ----- CONTENT -----
 
   // Bibliography
+  // Rendered more compactly than the body text
   if bib != [] {
     set bibliography(title: bib-title, style: bib-style)
+    set par(leading: leading-spaces * 0.9, spacing: par-spacing * 0.6)
     bib
   }
 
