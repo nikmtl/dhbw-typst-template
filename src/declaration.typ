@@ -10,6 +10,17 @@
   set align(left)
   set par(leading: 1em)
 
+  // `author` may be a single value or an array (multiple authors).
+  let authors = if type(author) == array { author } else { (author,) }
+  let multi = authors.len() > 1
+  let signatures = grid(
+    columns: (14em,) * authors.len(),
+    column-gutter: 2em,
+    row-gutter: 0.5em,
+    ..authors.map(_ => line(length: 100%, stroke: 0.5pt)),
+    ..authors,
+  )
+
   if lang == "en" {
     set text(lang: "en")
     [
@@ -20,15 +31,15 @@
 
       #block(stroke: 0.5pt, inset: 1em)[
 
-        I hereby declare that I have written this paper on the topic "#title" independently and that I have used no sources or aids other than those indicated. I also declare that I have not submitted this paper for any other examination with the same or comparable content and that it has not yet been published.
+        #if multi [We hereby declare that we have] else [I hereby declare that I have] written this paper on the topic "#title" independently and that #if multi [we have] else [I have] used no sources or aids other than those indicated. #if multi [We] else [I] also declare that #if multi [we have] else [I have] not submitted this paper for any other examination with the same or comparable content and that it has not yet been published.
 
         #v(1em)
 
-        I have used AI tools as aids in the preparation of this paper. The tools used and their respective purposes are fully listed in the AI Acknowledgement at the end of the paper.
+        #if multi [We have] else [I have] used AI tools as aids in the preparation of this paper. The tools used and their respective purposes are fully listed in the AI Acknowledgement at the end of the paper.
 
         #v(1em)
 
-        Furthermore, I declare that the submitted electronic version corresponds to the printed version.#footnote[If both versions are required.]
+        Furthermore, #if multi [we] else [I] declare that the submitted electronic version corresponds to the printed version.#footnote[If both versions are required.]
 
         #v(5em)
 
@@ -36,11 +47,7 @@
 
         #v(4em)
 
-        #line(length: 14em, stroke: 0.5pt)
-
-        #v(2em)
-
-        #author
+        #signatures
       ]
     ]
   } else {
@@ -50,16 +57,16 @@
       #set par(justify: true)
 
       #block(stroke: 0.5pt, inset: 1em)[
-        Ich versichere hiermit, dass ich die vorliegende Arbeit mit dem Thema "#title" selbstständig verfasst und keine anderen als die angegebenen Quellen und Hilfsmittel verwendet habe und diese Arbeit bei keiner anderen Prüfung mit gleichem oder vergleichbarem Inhalt vorgelegt habe und diese bislang nicht veröffentlich wurde.
+        #if multi [Wir versichern] else [Ich versichere] hiermit, dass #if multi [wir] else [ich] die vorliegende Arbeit mit dem Thema "#title" selbstständig verfasst und keine anderen als die angegebenen Quellen und Hilfsmittel verwendet #if multi [haben] else [habe] und diese Arbeit bei keiner anderen Prüfung mit gleichem oder vergleichbarem Inhalt vorgelegt #if multi [haben] else [habe] und diese bislang nicht veröffentlich wurde.
 
         #v(1em)
 
-        Ich habe bei der Erstellung der Arbeit KI-Werkzeuge als Hilfsmittel eingesetzt. Die verwendeten Werkzeuge und ihre jeweiligen Einsatzzwecke sind im AI-Acknowledgement am Ende der Arbeit vollständig aufgeführt.
+        #if multi [Wir haben] else [Ich habe] bei der Erstellung der Arbeit KI-Werkzeuge als Hilfsmittel eingesetzt. Die verwendeten Werkzeuge und ihre jeweiligen Einsatzzwecke sind im AI-Acknowledgement am Ende der Arbeit vollständig aufgeführt.
         
 
         #v(1em)
 
-        Des Weiteren versichere ich, dass die eingereichte elektronische Fassung mit der gedruckten Ausfertigung übereinstimmt.#footnote[Falls beide Fassungen gefordert sind.]
+        Des Weiteren #if multi [versichern wir] else [versichere ich], dass die eingereichte elektronische Fassung mit der gedruckten Ausfertigung übereinstimmt.#footnote[Falls beide Fassungen gefordert sind.]
 
 
         #v(6em)
@@ -68,11 +75,7 @@
 
         #v(4em)
 
-        #line(length: 14em, stroke: 0.5pt)
-
-        #v(.5em)
-
-        #author
+        #signatures
       ]
     ]
   }

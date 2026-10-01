@@ -52,8 +52,8 @@
   bib: [],
   bib-style: "ieee",
   citation-style: "ieee", // use alphanumeric for engineering
-  font: "Libertinus Serif",
-  title-font: "Libertinus Serif",
+  font: "Libertinus Serif", // body font (bundled with Typst)
+  title-font: "Libertinus Serif", // heading font
   text-lang: "de",
   outline-style: "default",
   margins: 2.5cm,
@@ -224,6 +224,7 @@
     company-logo: company-logo,
     university-logo: university-logo,
     text-lang: text-lang,
+    title-font: title-font,
   )
 
   pagebreak(weak: true)

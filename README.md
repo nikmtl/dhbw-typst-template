@@ -9,8 +9,7 @@ There are two thoughts behind the template:
 
 Importing and using the template is pretty straight-forward, especially with previous Typst experience.
 
-Note: The template doesn't support multiple authors.
-If I find the time in the future (and someone requests it), I'll add support for multiple authors.
+Multiple authors are supported: pass `author` (and optionally `mat-number`) as an array, e.g. `author: ("Jane Doe", "John Doe")`. The cover page, declaration (plural wording, one signature line per author) and document metadata adapt automatically. A single string still works as before.
 
 ## Contents
 
@@ -66,20 +65,20 @@ I would recommend filling in more options, otherwise your cover page won't look 
 | title | ✗* | — | Specifies the title of the project. |
 | project | ✗* | — | Specifies the official DHBW project identifier (e.g. T1000). |
 | project-type | ✗* | — | Defines the type of project (e.g. seminar thesis or bachelor thesis). |
-| author | ✓ | — | Specifies the full name of the author. |
+| author | ✓ | — | Specifies the full name of the author, or an array of names for multiple authors. |
 | course | ✗* | — | Defines the name of the study course. |
-| mat-number | ✗* | — | Specifies the DHBW matriculation number (6-digit student ID). |
+| mat-number | ✗* | — | Specifies the DHBW matriculation number (6-digit student ID). For multiple authors, pass an array in the same order as `author`. |
 | course-acronym | ✗* | — | Defines the abbreviated course name (3–4 letters followed by 2 numbers). |
 | completion-period | ✗* | — | Specifies the official completion period of the project. |
 | submission-date | ✓ | — | Specifies the official submission date of the project. |
 | supervisor | ✗ | — | Specifies the company supervisor for the project. |
 | university-supervisor | ✗ | — | Specifies the university professor supervising the project (mainly relevant for bachelor theses). |
-| company | ✗* | — | Defines the name of the employer or partner company. |
+| company | ✗* | — | Defines the name of the employer or partner company. Leave empty to omit the "Cooperation Partner" row on the cover (e.g. term papers without a company). |
 | functional-integrated | ✗ | — | Defines the department or unit where the work was functionally integrated. |
 | company-location | ✗* | — | Specifies the city where the company is located. |
 | university | ✗* | — | Defines the name of the university. |
 | **Logos & Other Documents** |  |  |  |
-| university-logo | ✗ | — | Path to the image file of the university logo. |
+| university-logo | ✗ | — | Path to the image file of the university logo. Centered on the cover if no company logo is given. |
 | company-logo | ✗ | — | Path to the image file of the company logo. |
 | confidentiality-notice | ✗ | false | Enables the built-in confidentiality notice page (mainly for company theses). |
 | place-of-authorship | ✗* | — | Specifies the city where the project was completed (used in the declaration of authorship). |
@@ -95,7 +94,7 @@ I would recommend filling in more options, otherwise your cover page won't look 
 | citation-style | ✗ | IEEE | Defines the citation style. |
 | **Language & Typography** |  |  |  |
 | font | ✗ | Libertinus Serif | Specifies the font used for the document. |
-| title-font | ✗ | same as `font` | Specifies the font used for headings/titles only. |
+| title-font | ✗ | Libertinus Serif | Specifies the font used for headings/titles only. |
 | text-lang | ✗ | de | Sets the document language (`en` or `de`). |
 | **Layout & Formatting** |  |  |  |
 | outline-style | ✗ | default | Defines the style used for generated outlines. |
@@ -223,3 +222,7 @@ Check out [glossy](https://typst.app/universe/package/glossy) for more infos on 
     caption: [This caption will show up both in-text and in the outline.]
 )
 ```
+
+### Fonts
+
+The template only uses **Libertinus Serif**, which is bundled with Typst, so it compiles without installing anything. To use other fonts, pass `font` and `title-font`. Typst packages cannot ship fonts, so the project has to provide them: install them on your system or pass `--font-path <dir>` to `typst compile`. In VS Code with Tinymist, set `tinymist.fontPaths`. If a font is missing, Typst falls back to a bundled font.
