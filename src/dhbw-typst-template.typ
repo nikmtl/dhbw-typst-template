@@ -66,6 +66,9 @@
   heading-name-as-supplement: false,
   annex: none,
   used-ai: none,
+  show-figure-list: true,
+  show-table-list: true,
+  show-acronym-list: true,
   body,
 ) = {
   // packages
@@ -331,19 +334,23 @@
   pagebreak(weak: true)
   _suppress-heading-break.update(true)
 
-  outline(
-    title: fig-list-title,
-    target: figure.where(kind: image),
-  )
-  outline(
-    title: table-list-title,
-    target: figure.where(kind: table),
-  )
+  if show-figure-list {
+    outline(
+      title: fig-list-title,
+      target: figure.where(kind: image),
+    )
+  }
+  if show-table-list {
+    outline(
+      title: table-list-title,
+      target: figure.where(kind: table),
+    )
+  }
   
   _suppress-heading-break.update(false)
 
   // List of Acronyms
-  if acronym-list.len() != 0 {
+  if show-acronym-list and acronym-list.len() != 0 {
     glossary(
       title: gloss-title,
       theme: theme-pa,

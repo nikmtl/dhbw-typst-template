@@ -88,6 +88,9 @@ I would recommend filling in more options, otherwise your cover page won't look 
 | **Acronyms & AI Usage** |  |  |  |
 | acronym-list | ✗ | — | Dictionary defining acronyms used in the document. [See example](#acronym-list)|
 | used-ai | ✗ | — | Dictionary mapping AI model names to descriptions of their usage (required by DHBW guidelines). [See example](#used-ai)|
+| show-figure-list | ✗ | true | Show the list of figures. Set to `false` to omit it. |
+| show-table-list | ✗ | true | Show the list of tables. Set to `false` to omit it. |
+| show-acronym-list | ✗ | true | Show the list of acronyms (only if `acronym-list` is non-empty). Set to `false` to omit it. |
 | **Bibliography & Citations** |  |  |  |
 | bib | ✗ | — | Path to the bibliography file. |
 | bib-style | ✗ | IEEE | Defines the bibliography style. |
