@@ -6,6 +6,7 @@
   place-of-authorship: [],
   date: [],
   lang: [],
+  show-print-declaration: true,
 ) = {
   set align(left)
   set par(leading: 1em)
@@ -37,9 +38,11 @@
 
         #if multi [We have] else [I have] used AI tools as aids in the preparation of this paper. The tools used and their respective purposes are fully listed in the AI Acknowledgement at the end of the paper.
 
-        #v(1em)
+        #if show-print-declaration [
+          #v(1em)
 
-        Furthermore, #if multi [we] else [I] declare that the submitted electronic version corresponds to the printed version.#footnote[If both versions are required.]
+          Furthermore, #if multi [we] else [I] declare that the submitted electronic version corresponds to the printed version.#footnote[If both versions are required.]
+        ]
 
         #v(5em)
 
@@ -64,10 +67,11 @@
         #if multi [Wir haben] else [Ich habe] bei der Erstellung der Arbeit KI-Werkzeuge als Hilfsmittel eingesetzt. Die verwendeten Werkzeuge und ihre jeweiligen Einsatzzwecke sind im AI-Acknowledgement am Ende der Arbeit vollständig aufgeführt.
         
 
-        #v(1em)
+        #if show-print-declaration [
+          #v(1em)
 
-        Des Weiteren #if multi [versichern wir] else [versichere ich], dass die eingereichte elektronische Fassung mit der gedruckten Ausfertigung übereinstimmt.#footnote[Falls beide Fassungen gefordert sind.]
-
+          Des Weiteren #if multi [versichern wir] else [versichere ich], dass die eingereichte elektronische Fassung mit der gedruckten Ausfertigung übereinstimmt.#footnote[Falls beide Fassungen gefordert sind.]
+        ]
 
         #v(6em)
 

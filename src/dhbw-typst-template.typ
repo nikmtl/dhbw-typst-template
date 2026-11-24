@@ -69,6 +69,7 @@
   show-figure-list: true,
   show-table-list: true,
   show-acronym-list: true,
+  show-print-declaration: true,
   body,
 ) = {
   // packages
@@ -275,6 +276,7 @@
     date: submission-date,
     place-of-authorship: place-of-authorship,
     lang: text-lang,
+    show-print-declaration: show-print-declaration,
   )
 
   pagebreak(weak: true)

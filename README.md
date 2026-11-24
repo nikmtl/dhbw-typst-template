@@ -91,6 +91,7 @@ I would recommend filling in more options, otherwise your cover page won't look 
 | show-figure-list | ✗ | true | Show the list of figures. Set to `false` to omit it. |
 | show-table-list | ✗ | true | Show the list of tables. Set to `false` to omit it. |
 | show-acronym-list | ✗ | true | Show the list of acronyms (only if `acronym-list` is non-empty). Set to `false` to omit it. |
+| show-print-declaration | ✗ | true | Include the sentence in the declaration stating that the electronic version matches the printed version. Set to `false` if no printed version is submitted. |
 | **Bibliography & Citations** |  |  |  |
 | bib | ✗ | — | Path to the bibliography file. |
 | bib-style | ✗ | IEEE | Defines the bibliography style. |
